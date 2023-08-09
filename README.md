@@ -68,14 +68,14 @@ $ npm install --save markdown-it-implicit-figures-video
 ```js
 import mdi from "markdown-it";
 import { html5Media } from "markdown-it-html5-media";
-import implicitFiguresVideo from "markdown-it-implicit-figures-video";
+import { implicitFiguresVideo } from "markdown-it-implicit-figures-video";
 
 ...
 
 const md = mdi().use(html5Media);
 
 // default options below
-md.use(mdiFiguresVideo, {
+md.use(implicitFiguresVideo, {
     copyAttrs: false, // <figure {...videoAttrs}>
     dataType: false, // <figure data-type="video">
     figcaption: false, // adds <figcaption>, possible values
