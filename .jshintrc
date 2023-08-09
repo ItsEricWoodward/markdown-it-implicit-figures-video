@@ -1,0 +1,11 @@
+// https://jshint.com/docs/ 
+{
+	"bitwise": true,
+	"esversion": 11,
+	"latedef": true,
+	"noarg": true,
+	"node": true,
+	"undef": true,
+	"unused": true,
+	"validthis": true
+}
