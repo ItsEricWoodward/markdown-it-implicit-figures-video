@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-implicit-figures-video",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "Render videos occurring by themselves in a paragraph as `<figure><video ...></figure>`, similar to pandoc's implicit figures for images.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
