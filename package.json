@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-implicit-figures-video",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Render videos occurring by themselves in a paragraph as `<figure><video ...></figure>`, similar to pandoc's implicit figures for images.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -10,10 +10,11 @@
   "scripts": {
     "build": "rm -rf ./lib && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "hint": "npx jshint lib",
-    "prepublishOnly": "npm run build && npm run test",
+    "prepublishOnly": "npm run build && npm test",
     "preversion": "jest",
     "postpublish": "git push && git push --tags",
-    "test": "jest"
+    "test": "jest",
+    "ci": "npm run build && npm test"
   },
   "author": {
     "name": "Eric Woodward",
@@ -36,8 +37,8 @@
   "devDependencies": {
     "@tsconfig/node18": "^18.2.0",
     "@types/jest": "^29.5.3",
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^20.4.8",
+    "@types/markdown-it": "^13.0.0",
+    "@types/node": "^20.4.10",
     "jest": "^29.6.2",
     "jshint": "^2.13.6",
     "markdown-it": "^13.0.1",

@@ -1,8 +1,12 @@
-# markdown-it-implicit-figures-video [![Build Status](https://travis-ci.org/arve0/markdown-it-implicit-figures.svg?branch=master)](https://travis-ci.org/arve0/markdown-it-implicit-figures) [![npm version](https://badge.fury.io/js/markdown-it-implicit-figures.svg)](http://badge.fury.io/js/markdown-it-implicit-figures)
+# markdown-it-implicit-figures-video
+
+[![TypeScript](https://badgen.net/badge/icon/TypeScript?icon=typescript&label)](https://github.com/ItsEricWoodward/markdown-it-implicit-figures-video) [![npm version](https://badgen.net/npm/v/markdown-it-implicit-figures-video?color=purple)](https://www.npmjs.com/package/markdown-it-implicit-figures-video) [![MIT license](https://badgen.net/github/license/ItsEricWoodward/markdown-it-implicit-figures-video)](https://www.itsericwoodward.com/licenses/mit.html) [![Package Phobia](https://badgen.net/packagephobia/install/markdown-it-implicit-figures-video?color=purple)](https://packagephobia.com/result?p=markdown-it-implicit-figures-video) [![last commit](https://badgen.net/github/last-commit/ItsEricWoodward/markdown-it-implicit-figures-video?color=blue)](https://github.com/ItsEricWoodward/markdown-it-implicit-figures-video/commits/main)
+
+[![npm install](https://nodei.co/npm/markdown-it-implicit-figures-video.png?mini=true)](https://www.npmjs.com/package/markdown-it-implicit-figures-video)
 
 Render videos occurring by themselves in a paragraph as `<figure><video ...></figure>`, similar to [pandoc's implicit figures for images](http://pandoc.org/README.html#images).
 
-Based on the excellent [markdown-it-implicit-figures](https://www.npmjs.com/package/markdown-it-implicit-figures) package.
+Based on the excellent [markdown-it-implicit-figures](https://www.npmjs.com/package/markdown-it-implicit-figures) package by [Arve Seljebu](https://arve0.github.io/).
 
 Example input:
 
@@ -11,7 +15,7 @@ text before ![](video.mp4)
 
 ![my video](my_video.mp4 "My Awesome Video")
 
-works with links too:
+and it works with links:
 
 [![](fig.png)](page.html)
 ```
@@ -40,7 +44,7 @@ Output (adjusted for easier reading):
 	</video>
 </figure>
 
-<p>works with links too:</p>
+<p>and it works with links:</p>
 
 <figure>
 	<a href="page.html">
@@ -52,15 +56,16 @@ Output (adjusted for easier reading):
 </figure>
 ```
 
+...and [the tests to prove it](https://github.com/ItsEricWoodward/markdown-it-implicit-figures-video/tree/main/__tests__)!
+
 ## Requirements
 
-- A version of Node that supports ES6 Modules.
 - The [markdown-it-html5-media](https://www.npmjs.com/package/markdown-it-html5-media) plugin, which must be `use`d before `markdown-it-implicit-figures-video` (see [usage](#usage), below).
 
 ## Install
 
-```
-$ npm install --save markdown-it-implicit-figures-video
+```console
+$ npm install markdown-it-implicit-figures-video
 ```
 
 ## Usage
@@ -98,12 +103,14 @@ console.log(res);
 
 - `copyAttrs`: Copy attributes matching (RegExp or string) `copyAttrs` to `figure` element.
 
-- `dataType`: Set `dataType` to `true` to declare the data-type being wrapped,
-  e.g.: `<figure data-type="video">`. This can be useful for applying special
+- `dataType`: Set `dataType` to `true` to add the data-type attribute to `<figure>` tag
+  (resulting in `<figure data-type="video">`). This can be useful for applying special
   styling for different kind of figures.
 
-- `figcaption`: Set `figcaption` to `true` or `description` to put the description text
-  in a `<figcaption>`-block after the image. E.g.: `![text](img.png)` renders to
+- `figcaption`: Can be set to either a boolean or string value.
+
+  - Set `figcaption` to `true` or `description` to put the description text in a
+    `<figcaption>`-block after the image. For example, `![text](img.png)` renders to
 
   ```html
   <figure>
@@ -112,14 +119,14 @@ console.log(res);
   </figure>
   ```
 
-  - Set `figcaption` to `title` to put the title text in a `<figcaption>`-block
-    after the image. E.g.: `![text](img.png "title")` renders to
-    ```html
-    <figure>
-    	<img src="img.png" alt="text" />
-    	<figcaption>title</figcaption>
-    </figure>
-    ```
+  - Set `figcaption` to `title` to put the title text in a `<figcaption>` after the image. For example, `![text](img.png "title")` renders to
+
+  ```html
+  <figure>
+  	<img src="img.png" alt="text" />
+  	<figcaption>title</figcaption>
+  </figure>
+  ```
 
 - `tabindex`: Set `tabindex` to `true` to add a `tabindex` property to each
   figure, beginning at `tabindex="1"` and incrementing for each figure
